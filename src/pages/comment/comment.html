@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>CommentPage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list no-lines>
+    <ion-item ion-item *ngFor="let comment of comments">
+      {{ comment.Comment }}
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer no-border>
+  <div class="input-wrap">
+    <input placeholder="Text Input"
+              [(ngModel)]="text"
+             />
+
+    <button ion-button clear icon-only item-right (click)="addComment()" >
+      <ion-icon name="ios-send" ios="ios-send"></ion-icon>
+    </button>
+  </div>
+</ion-footer>

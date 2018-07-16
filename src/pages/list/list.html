@@ -3,21 +3,42 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+<ion-content class="cards-bg">
+
+    <ion-card *ngFor="let p of posts">
+        <ion-card-content>
+            <ion-card-title>
+                {{ p.title }}
+            </ion-card-title>
+            <p>
+                {{ p.text }}
+
+            </p>
+        </ion-card-content>
+
+        <ion-row no-padding>
+          <ion-col>
+            <button ion-button clear small color="dark" icon-start>
+              <ion-icon name='heart'></ion-icon>
+
+            </button>
+          </ion-col>
+          <ion-col text-center>
+            <button ion-button clear small color="dark" icon-start (click)="addComment(p)">
+              <ion-icon name='ios-text'></ion-icon>
+
+            </button>
+          </ion-col>
+          <ion-col text-right>
+            <button ion-button clear small color="dark" icon-start>
+              <ion-icon name='share-alt'></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+
+    </ion-card>
 </ion-content>
